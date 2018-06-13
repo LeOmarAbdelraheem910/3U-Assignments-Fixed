@@ -223,6 +223,7 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
 
         jButton4.setText("H");
         jButton4.setPreferredSize(new java.awt.Dimension(50, 50));
@@ -372,6 +373,7 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
 
         Hydrogen.setBackground(new java.awt.Color(0, 224, 202));
         Hydrogen.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+
         Hydrogen.setText("H");
         Hydrogen.setToolTipText("1\n  Hydrogen");
         Hydrogen.setBorderPainted(false);
@@ -2122,7 +2124,14 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
             }
         });
 
+        jSlider1.setMaximum(6000);
         jSlider1.setToolTipText("Termperature Gauge");
+        jSlider1.setValue(273);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
 
         jTextField3.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
         jTextField3.setToolTipText("What temperature is it? (K)");
@@ -2151,6 +2160,15 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton14.setText("Temp. Converter");
+        jButton14.setToolTipText("Because this is useful :\")");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
             }
         });
 
@@ -2347,16 +2365,19 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addGap(12, 12, 12)
                                                                 .addComponent(jLabel20))))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addGap(140, 140, 140)
+                                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(Vanadium, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(Chromium, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(Manganese, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(Vanadium, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(Chromium, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(Manganese, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2700,7 +2721,9 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
                                             .addComponent(Argon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(63, 63, 63))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jButton13)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jButton13)
+                                            .addComponent(jButton14))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -3824,7 +3847,8 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
         }     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
+        String jTextField3String = jTextField3.getText();
+        jSlider1.setValue(Integer.parseInt(jTextField3String));
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -4303,6 +4327,21 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        jTextField3.setText(Integer.toString(jSlider1.getValue()));
+        if (jSlider1.getValue() < 14.01) {
+            Hydrogen.setForeground(new java.awt.Color(0, 0, 0));
+        } if (jSlider1.getValue() >= 14.01 && jSlider1.getValue() < 20.28) {
+            Hydrogen.setForeground(new java.awt.Color(0, 0, 204));
+        } if (jSlider1.getValue() >= 20.28) {
+            Hydrogen.setForeground(new java.awt.Color(102, 0, 0));
+        }
+    }//GEN-LAST:event_jSlider1StateChanged
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4461,6 +4500,7 @@ public class ThePeriodicTableOfTheElements extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
